@@ -1,6 +1,6 @@
 <?php
 
-namespace App\FinanceHistory\Requests;
+namespace App\FinanceAnalyzer\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 

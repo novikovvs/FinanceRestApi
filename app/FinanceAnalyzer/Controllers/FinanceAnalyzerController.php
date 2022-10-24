@@ -2,9 +2,10 @@
 
 namespace App\FinanceAnalyzer\Controllers;
 
-use App\FinanceHistory\Requests\UploadRequest;
+use App\FinanceAnalyzer\Requests\UploadRequest;
 use App\Http\Controllers\Controller;
 use App\Imports\FinanceHistoryImport;
+use App\Jobs\AnalyzeFinance;
 use Illuminate\Http\JsonResponse;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -12,12 +13,9 @@ class FinanceAnalyzerController extends Controller
 {
     public function upload(UploadRequest $request): JsonResponse
     {
-        Excel::import(
-            new FinanceHistoryImport,
-            $request->file('upload_file'),
-            null,
-            \Maatwebsite\Excel\Excel::CSV
-        );
+        $job = new AnalyzeFinance($request->file('upload_file')->store('/uploads/csv/'));
+
+        dispatch($job);
 
         return $this->success();
     }
