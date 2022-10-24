@@ -24,12 +24,7 @@ class AnalyzeFinance implements ShouldQueue
     ) {
     }
 
-    /**
-     * Execute the job.
-     *
-     * @return void
-     */
-    public function handle()
+    public function handle(): void
     {
         Excel::import(
             new FinanceHistoryImport,
