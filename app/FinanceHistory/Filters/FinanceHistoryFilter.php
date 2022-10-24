@@ -1,8 +1,8 @@
 <?php
 
-namespace App\FinanceAnalyzer\Filters;
+namespace App\FinanceHistory\Filters;
 
-use App\FinanceAnalyzer\Queries\FinanceHistoryQuery;
+use App\FinanceHistory\Queries\FinanceHistoryQuery;
 use Illuminate\Http\Request;
 
 class FinanceHistoryFilter
@@ -23,7 +23,6 @@ class FinanceHistoryFilter
 
         if ($request->has('description')) {
             $filter->descriptionFilter = $request->get('description');
-
         }
 
         if ($request->has('detail')) {

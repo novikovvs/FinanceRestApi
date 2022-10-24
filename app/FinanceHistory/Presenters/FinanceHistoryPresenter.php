@@ -1,11 +1,10 @@
 <?php
 
-namespace App\FinanceAnalyzer\Presenters;
+namespace App\FinanceHistory\Presenters;
 
-use App\FinanceAnalyzer\Filters\FinanceHistoryFilter;
-use App\FinanceAnalyzer\Queries\FinanceHistoryQuery;
-use App\FinanceAnalyzer\ResourceModels\ExpensesResourceModel;
-use Illuminate\Support\Collection;
+use App\FinanceHistory\Filters\FinanceHistoryFilter;
+use App\FinanceHistory\Queries\FinanceHistoryQuery;
+use App\FinanceHistory\ResourceModels\ExpensesResourceModel;
 
 class FinanceHistoryPresenter
 {

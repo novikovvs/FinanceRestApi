@@ -1,6 +1,6 @@
 <?php
 
-namespace App\FinanceAnalyzer\Queries;
+namespace App\FinanceHistory\Queries;
 
 use App\Models\FinanceHistory;
 use Illuminate\Database\Eloquent\Builder;
@@ -10,13 +10,12 @@ class FinanceHistoryQuery
 {
     private Builder $baseQuery;
 
-    public function __construct(
-    )
+    public function __construct()
     {
         $this->baseQuery = FinanceHistory::query();
     }
 
-    public function getBaseQuery(): Builder
+    private function getBaseQuery(): Builder
     {
         return $this->baseQuery;
     }
@@ -41,6 +40,6 @@ class FinanceHistoryQuery
 
     public function get(): Collection|array
     {
-        return $this->baseQuery->get();
+        return $this->getBaseQuery()->get();
     }
 }

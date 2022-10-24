@@ -1,11 +1,10 @@
 <?php
 
-namespace App\FinanceAnalyzer\ResourceModels;
+namespace App\FinanceHistory\ResourceModels;
 
 use App\Models\FinanceHistory;
 use App\ResouceModels\BaseResourceModels\BaseResourceModel;
 use Illuminate\Support\Collection;
-use PhpParser\Node\Expr\Array_;
 
 class ExpensesResourceModel extends BaseResourceModel
 {
@@ -26,6 +25,7 @@ class ExpensesResourceModel extends BaseResourceModel
     public function fromCollection(Collection $collection): array
     {
         $items = [];
+
         /**
          * @var FinanceHistory $item
          */
@@ -36,7 +36,7 @@ class ExpensesResourceModel extends BaseResourceModel
             $instance->description = $item->description ?? null;
             $instance->mss = $item->MSS ?? null;
             $instance->operationDatetime = $item->operation_datetime ?? null;
-            $items[]= $instance;
+            $items[] = $instance;
         }
 
         return $items;

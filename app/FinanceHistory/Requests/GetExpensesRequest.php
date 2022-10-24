@@ -1,11 +1,8 @@
 <?php
 
-namespace App\FinanceAnalyzer\Requests;
+namespace App\FinanceHistory\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\ValidationException;
-use Illuminate\Validation\Validator;
-use function PHPUnit\Framework\throwException;
 
 class GetExpensesRequest extends FormRequest
 {

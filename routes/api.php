@@ -1,6 +1,7 @@
 <?php
 
 use App\FinanceAnalyzer\Controllers\FinanceAnalyzerController;
+use App\FinanceHistory\Controllers\FinanceHistoryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,4 +16,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::post('/upload', [FinanceAnalyzerController::class, 'upload'])->name('upload');
-Route::get('/expenses', [FinanceAnalyzerController::class, 'getExpenses'])->name('expenses');
+Route::get('/expenses', [FinanceHistoryController::class, 'getExpenses'])->name('expenses');
