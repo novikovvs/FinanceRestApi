@@ -4,7 +4,6 @@ namespace App\Imports;
 
 use App\Models\FinanceHistory;
 use Carbon\Carbon;
-
 use Maatwebsite\Excel\Concerns\Importable;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithCustomCsvSettings;
@@ -15,22 +14,22 @@ class FinanceHistoryImport implements ToModel, WithCustomCsvSettings, WithStartR
     use Importable;
 
     /**
-     * @param array $row
-     *
+     * @param  array  $row
      * @return FinanceHistory|null
      */
     public function model(array $row): FinanceHistory|null
     {
         $timestamp = Carbon::make($row[0]);
-        if ($timestamp && !FinanceHistory::where('operation_datetime', $timestamp)->exists()) {
+        if ($timestamp && ! FinanceHistory::where('operation_datetime', $timestamp)->exists()) {
             return new FinanceHistory([
                 'operation_datetime' => $timestamp,
-                'amount' => (float)$row[4],
+                'amount' => (float) $row[4],
                 'category' => $row[9],
-                'MSS' => (float)$row[10],
+                'MSS' => (float) $row[10],
                 'description' => $row[11],
             ]);
         }
+
         return null;
     }
 
@@ -38,7 +37,7 @@ class FinanceHistoryImport implements ToModel, WithCustomCsvSettings, WithStartR
     {
         return [
             'delimiter' => ';',
-            'input_encoding' => 'windows-1251'
+            'input_encoding' => 'windows-1251',
         ];
     }
 

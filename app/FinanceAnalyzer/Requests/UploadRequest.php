@@ -3,7 +3,6 @@
 namespace App\FinanceHistory\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Http\Request;
 
 class UploadRequest extends FormRequest
 {
@@ -13,7 +12,7 @@ class UploadRequest extends FormRequest
             'upload_file' => [
                 'required',
                 'file',
-                'mimes:csv,txt'
+                'mimes:csv,txt',
             ],
         ];
     }

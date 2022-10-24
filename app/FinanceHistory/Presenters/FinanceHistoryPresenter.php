@@ -10,8 +10,7 @@ class FinanceHistoryPresenter
 {
     public function __construct(
         private ExpensesResourceModel $resourceModel
-    )
-    {
+    ) {
     }
 
     public function present(FinanceHistoryQuery $query, FinanceHistoryFilter $filter): array

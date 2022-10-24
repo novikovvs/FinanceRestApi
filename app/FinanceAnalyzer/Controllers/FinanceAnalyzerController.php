@@ -10,7 +10,7 @@ use Maatwebsite\Excel\Facades\Excel;
 
 class FinanceAnalyzerController extends Controller
 {
-    function upload(UploadRequest $request): JsonResponse
+    public function upload(UploadRequest $request): JsonResponse
     {
         Excel::import(
             new FinanceHistoryImport,

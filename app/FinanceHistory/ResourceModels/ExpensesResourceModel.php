@@ -19,8 +19,8 @@ class ExpensesResourceModel extends BaseResourceModel
     public ?string $mss;
 
     /**
-     * @param Collection $collection
-     * @return Array<ExpensesResourceModel>
+     * @param  Collection  $collection
+     * @return array<ExpensesResourceModel>
      */
     public function fromCollection(Collection $collection): array
     {
@@ -31,7 +31,7 @@ class ExpensesResourceModel extends BaseResourceModel
          */
         foreach ($collection as $item) {
             $instance = new ExpensesResourceModel();
-            $instance->amount = $item->sum ?? $item->amount;
+            $instance->amount = abs($item->sum ?? $item->amount);
             $instance->category = $item->category ?? null;
             $instance->description = $item->description ?? null;
             $instance->mss = $item->MSS ?? null;

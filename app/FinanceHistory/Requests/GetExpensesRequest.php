@@ -11,7 +11,9 @@ class GetExpensesRequest extends FormRequest
         return [
             'category' => 'string',
             'description' => 'string',
-            'detail' => 'boolean|required'
+            'detail' => 'boolean|required',
+            'start_period_date' => 'string',
+            'end_period_date' => 'string',
         ];
     }
 
@@ -20,6 +22,5 @@ class GetExpensesRequest extends FormRequest
         if ($validator->fails()) {
             dd($validator->getMessageBag());
         }
-
     }
 }

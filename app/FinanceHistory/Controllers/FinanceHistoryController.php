@@ -11,12 +11,11 @@ use Illuminate\Http\JsonResponse;
 
 class FinanceHistoryController extends Controller
 {
-    function getExpenses(
-        GetExpensesRequest      $request,
-        FinanceHistoryQuery     $query,
+    public function getExpenses(
+        GetExpensesRequest $request,
+        FinanceHistoryQuery $query,
         FinanceHistoryPresenter $presenter
-    ): JsonResponse
-    {
+    ): JsonResponse {
         $filter = FinanceHistoryFilter::createFromRequest($request);
 
         return $this->success($presenter->present($query, $filter));
