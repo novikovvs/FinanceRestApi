@@ -19,7 +19,7 @@ class ExpensesResourceModel extends BaseResourceModel
     public ?string $mss;
 
     /**
-     * @param Collection $collection
+     * @param  Collection  $collection
      * @return array<ExpensesResourceModel>
      */
     public function fromCollection(Collection $collection): array
